@@ -1,0 +1,84 @@
+:root {
+    // theme colors
+    --theme-color-l2: #DEE9FC;
+    --theme-color-l1: #6395F2;
+    --theme-color: #1258DC;
+    --theme-color-d1: #0A337F;
+    --theme-color-d2: #091834;
+
+    --accent-light: #FCBA12;
+    --accent-dark: #FD4D0C;
+
+    --color-text: #342809;
+
+    --font-primary: 'Raleway', sans-serif;
+
+    --box-shadow-default: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--font-primary);
+    font-size: 62.5%;
+}
+
+body {
+    // background-color: var(--theme-color-l2);
+    background-color: rgba(255, 250, 250, 0);
+    font-size: 1.8rem;
+    line-height: 2;
+}
+
+.wrapper {
+    max-width: 120rem;
+    width: 100%;
+    padding: 1rem;
+    margin: auto;
+}
+
+@import 'section-agent';
+@import 'tab-menu';
+@import 'table-deals';
+@import 'alerts';
+
+#otasks {
+    h3 {
+        line-height: 1;
+        text-align: center;
+        margin: 2rem 0 3rem;
+    }
+}
+
+#agentTasks {
+
+    .alert {
+        text-align: center!important;
+    }
+}
+@media (min-width: 600px) {
+    #otasks {
+        h3 {
+            text-align: left;
+        }
+    }
+
+    #agentTasks {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .alert {
+            flex: 0 0 calc(50% - 2rem);
+            text-align: left !important;
+        }
+    }
+}
+
+

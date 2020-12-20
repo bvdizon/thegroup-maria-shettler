@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Group | Report Site</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;900">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <section class="wrapper agent-info-section">
+            <figure class="agent-image">
+                <img id="agentImage">
+            </figure>
+
+            <div class="agent-contact agent-content-text">
+                <h3 class="agent-header-text">Contact info</h3>
+                <p>
+                    <i class="fa fa-phone"></i>
+                    <span id="agentPhone">(587) 432 0356</span>
+                </p>
+                <p>
+                    <i class="fa fa-envelope"></i>
+                    <span id="agentEmail">chris@thegroup.ca</span>
+                </p>
+                <p>
+                    <i class="fa fa-map-marker two"></i>
+                    <span>
+                        #115 8820 Blackfoot Trail SE <br>
+                        Calgary, Alberta T2J 3J1
+                    </span>
+                </p>
+            </div>
+
+            <div class="agent-quick-summary agent-content-text">
+                <h3 class="agent-header-text">Quick Summary</h3>
+                <div class="quick-stats">
+                    <p>
+                        <span>
+                            <i class="fa fa-handshake-o"></i>
+                            <span>Deals</span>
+                        </span>
+                        <span id="count_deals">99</span>
+                    </p>
+                    <p>
+                        <span>
+                            <i class="fa fa-users"></i>
+                            <span>&nbsp;Leads</span>
+                        </span>
+                        <span id="count_leads">99</span>
+                    </p>
+                    <p>
+                        <span>
+                            <i class="fa fa-percent"></i>
+                            <span>&nbsp;&nbsp;Conversion</span>
+                        </span>
+                        <span id="count_conversion">99</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <section class="wrapper">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'deals')">My Deals</button>
+            <button class="tablinks" onclick="openCity(event, 'leads')">Lead Sources</button>
+            <button class="tablinks" onclick="openCity(event, 'commissions')">Commissions</button>
+            <button class="tablinks" onclick="openCity(event, 'otasks')" id="defaultOpen">Outstanding Tasks</button>
+        </div>
+        <div id="deals" class="tabcontent">
+            <div style="overflow-x:auto;">
+                <table id="transMgr">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th style="width: 25%;">Transaction</th>
+                            <th style="width: 25%;">Client(s)</th>
+                            <th>Classification</th>
+                            <th>Volume</th>
+                            <th>Gross Comms.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="agentDeals">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="leads" class="tabcontent">
+            <h3>Paris</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+
+        <div id="commissions" class="tabcontent">
+            <div style="overflow-x:auto;">
+                <table id="transMgr">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th style="width: 20%;">Client(s)</th>
+                            <th>Classification</th>
+                            <th>Lead Type</th>
+                            <th>Comms. Tier</th>
+                            <th>Gross</th>
+                            <th>Team Split</th>
+                            <th>My Split</th>
+                            <th>Paid?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="agentComms">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="otasks" class="tabcontent">
+            <h3>My Outstanding Tasks</h3>
+            <div id="agentTasks">
+                <!-- Show Agent Tasks -->
+            </div>
+        </div>
+
+        <small><strong>Note</strong>: <i>Table shows data based on condition date of the current year.</i></small>
+    </section>
+
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
