@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- <style>
+        #agent_kpi{
+            display: none;
+        }
+    </style> -->
 </head>
 
 <body>
@@ -66,7 +72,15 @@
         </section>
     </header>
 
-    <section class="wrapper">
+    <!-- <section class="wrapper login-form">
+        <form action="" id="loginForm">
+            <input type="email" id="email" value="test@test.com" required>
+            <input type="password" id="password" placeholder="Please enter your password" required>
+            <input type="submit" value="See my Stats">
+        </form>
+    </section> -->
+
+    <section class="wrapper" id="agent_kpi">
         <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'deals')">My Deals</button>
             <button class="tablinks" onclick="openCity(event, 'leads')">Lead Sources</button>
@@ -93,8 +107,8 @@
         </div>
 
         <div id="leads" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p>
+            <h3>Coming soon ...</h3>
+            <p>This tab will display information focused on lead sources.</p>
         </div>
 
         <div id="commissions" class="tabcontent">
@@ -128,6 +142,25 @@
 
         <small><strong>Note</strong>: <i>Table shows data based on condition date of the current year.</i></small>
     </section>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBLtWUut-HyngxMaCFM29gwxiNilZrL81o",
+            authDomain: "thegroup-report-site.firebaseapp.com",
+            projectId: "thegroup-report-site",
+            storageBucket: "thegroup-report-site.appspot.com",
+            messagingSenderId: "1017009916753",
+            appId: "1:1017009916753:web:2c92a01fc092221fc7a170"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
 
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/app.js"></script>

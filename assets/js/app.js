@@ -16,7 +16,7 @@ let agentComms = document.getElementById('agentComms');
 let agentTasks = document.getElementById('agentTasks');
 
 // Variables
-const agent_name = "Frank Liu";
+const agent_name = "Maria Shettler";
 const current_date = new Date();
 const current_year = String(current_date.getFullYear());
 const condition_year = current_year;
@@ -127,3 +127,19 @@ function display_myDeals(deals) {
 getAgentDeals(process_getAgentDeals);
 getAgents();
 getOTasks();
+
+
+
+/* Firebase Authentication
+**************************/
+
+
+auth.signInWithEmailAndPassword(email, password)
+  .then((user) => {
+    // Signed in 
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
