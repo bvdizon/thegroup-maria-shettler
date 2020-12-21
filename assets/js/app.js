@@ -16,7 +16,7 @@ let agentComms = document.getElementById('agentComms');
 let agentTasks = document.getElementById('agentTasks');
 
 // Variables
-const agent_name = "Chris Duffy";
+const agent_name = "Will Vo";
 const current_date = new Date();
 const current_year = String(current_date.getFullYear());
 const condition_year = current_year;
