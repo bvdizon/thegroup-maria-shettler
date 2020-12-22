@@ -10,138 +10,170 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- <style>
-        #agent_kpi{
-            display: none;
-        }
-    </style> -->
 </head>
 
 <body>
-    <header>
-        <section class="wrapper agent-info-section">
-            <figure class="agent-image">
-                <img id="agentImage">
-            </figure>
+    <div id="login-form" class="wrapper logged-out">
+        <h2>How are you doing, Chris?</h2>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login to Check your Agent Card</button>
 
-            <div class="agent-contact agent-content-text">
-                <h3 class="agent-header-text">Contact info</h3>
-                <p>
-                    <i class="fa fa-phone"></i>
-                    <span id="agentPhone">(587) 432 0356</span>
-                </p>
-                <p>
-                    <i class="fa fa-envelope"></i>
-                    <span id="agentEmail">chris@thegroup.ca</span>
-                </p>
-                <p>
-                    <i class="fa fa-map-marker two"></i>
-                    <span>
-                        #115 8820 Blackfoot Trail SE <br>
-                        Calgary, Alberta T2J 3J1
-                    </span>
-                </p>
-            </div>
+        <div id="id01" class="modal">
+            <form class="modal-content animate" id="loginForm">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
 
-            <div class="agent-quick-summary agent-content-text">
-                <h3 class="agent-header-text">Quick Summary</h3>
-                <div class="quick-stats">
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" value="Test@test.com" id="email" required>
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" id="password" required>
+
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" id="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <main id="agentReportCard" class="logged-in" style="display: none;">
+        <header>
+            <section class="wrapper agent-info-section">
+                <figure class="agent-image">
+                    <img id="agentImage">
+                </figure>
+
+                <div class="agent-contact agent-content-text">
+                    <h3 class="agent-header-text">Contact info</h3>
                     <p>
-                        <span>
-                            <i class="fa fa-handshake-o"></i>
-                            <span>Deals</span>
-                        </span>
-                        <span id="count_deals">99</span>
+                        <i class="fa fa-phone"></i>
+                        <span id="agentPhone">(587) 432 0356</span>
                     </p>
                     <p>
-                        <span>
-                            <i class="fa fa-users"></i>
-                            <span>&nbsp;Leads</span>
-                        </span>
-                        <span id="count_leads">99</span>
+                        <i class="fa fa-envelope"></i>
+                        <span id="agentEmail">chris@thegroup.ca</span>
                     </p>
                     <p>
+                        <i class="fa fa-map-marker two"></i>
                         <span>
-                            <i class="fa fa-percent"></i>
-                            <span>&nbsp;&nbsp;Conversion</span>
+                            #115 8820 Blackfoot Trail SE <br>
+                            Calgary, Alberta T2J 3J1
                         </span>
-                        <span id="count_conversion">99</span>
                     </p>
                 </div>
+
+                <div class="agent-quick-summary agent-content-text">
+                    <h3 class="agent-header-text">Quick Summary</h3>
+                    <div class="quick-stats">
+                        <p>
+                            <span>
+                                <i class="fa fa-handshake-o"></i>
+                                <span>Deals</span>
+                            </span>
+                            <span id="count_deals"></span>
+                        </p>
+                        <p>
+                            <span>
+                                <i class="fa fa-users"></i>
+                                <span>&nbsp;Leads</span>
+                            </span>
+                            <span id="count_leads"></span>
+                        </p>
+                        <p>
+                            <span>
+                                <i class="fa fa-percent"></i>
+                                <span>&nbsp;&nbsp;Conversion</span>
+                            </span>
+                            <span id="count_conversion"></span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <section class="wrapper" id="announcement">
+            <div class="danger">
+                <p><strong>Announcement!</strong> 
+                    Make sure to wear your thinking caps on come January 06, 2021. You wouldn't want to be the weakest link. Would you?
+                    --- by QuizMaster
+                </p>
             </div>
         </section>
-    </header>
 
-    <!-- <section class="wrapper login-form">
-        <form action="" id="loginForm">
-            <input type="email" id="email" value="test@test.com" required>
-            <input type="password" id="password" placeholder="Please enter your password" required>
-            <input type="submit" value="See my Stats">
-        </form>
-    </section> -->
-
-    <section class="wrapper" id="agent_kpi">
-        <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'deals')">My Deals</button>
-            <button class="tablinks" onclick="openCity(event, 'leads')">Lead Sources</button>
-            <button class="tablinks" onclick="openCity(event, 'commissions')">Commissions</button>
-            <button class="tablinks" onclick="openCity(event, 'otasks')" id="defaultOpen">Outstanding Tasks</button>
-        </div>
-        <div id="deals" class="tabcontent">
-            <div style="overflow-x:auto;">
-                <table id="transMgr">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th style="width: 25%;">Transaction</th>
-                            <th style="width: 25%;">Client(s)</th>
-                            <th>Classification</th>
-                            <th>Volume</th>
-                            <th>Gross Comms.</th>
-                        </tr>
-                    </thead>
-                    <tbody id="agentDeals">
-                    </tbody>
-                </table>
+        <section class="wrapper" id="agent_kpi">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'deals')">My Deals</button>
+                <button class="tablinks" onclick="openTab(event, 'leads')">Lead Sources</button>
+                <button class="tablinks" onclick="openTab(event, 'commissions')">Commissions</button>
+                <button class="tablinks" onclick="openTab(event, 'otasks')" id="defaultOpen">Outstanding Tasks</button>
             </div>
-        </div>
-
-        <div id="leads" class="tabcontent">
-            <h3>Coming soon ...</h3>
-            <p>This tab will display information focused on lead sources.</p>
-        </div>
-
-        <div id="commissions" class="tabcontent">
-            <div style="overflow-x:auto;">
-                <table id="transMgr">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th style="width: 20%;">Client(s)</th>
-                            <th>Classification</th>
-                            <th>Lead Type</th>
-                            <th>Comms. Tier</th>
-                            <th>Gross</th>
-                            <th>Team Split</th>
-                            <th>My Split</th>
-                            <th>Paid?</th>
-                        </tr>
-                    </thead>
-                    <tbody id="agentComms">
-                    </tbody>
-                </table>
+            <div id="deals" class="tabcontent">
+                <div style="overflow-x:auto;">
+                    <table id="transMgr">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th style="width: 25%;">Transaction</th>
+                                <th style="width: 25%;">Client(s)</th>
+                                <th>Classification</th>
+                                <th>Volume</th>
+                                <th>Gross Comms.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="agentDeals">
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <div id="otasks" class="tabcontent">
-            <h3>My Outstanding Tasks</h3>
-            <div id="agentTasks">
-                <!-- Show Agent Tasks -->
+            <div id="leads" class="tabcontent">
+                <h3>Coming soon ...</h3>
+                <p>This tab will display information focused on lead sources.</p>
             </div>
-        </div>
 
-        <small><strong>Note</strong>: <i>Table shows data based on condition date of the current year.</i></small>
-    </section>
+            <div id="commissions" class="tabcontent">
+                <div style="overflow-x:auto;">
+                    <table id="transMgr">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th style="width: 20%;">Client(s)</th>
+                                <th>Classification</th>
+                                <th>Lead Type</th>
+                                <th>Comms. Tier</th>
+                                <th>Gross</th>
+                                <th>Team Split</th>
+                                <th>My Split</th>
+                                <th>Paid?</th>
+                            </tr>
+                        </thead>
+                        <tbody id="agentComms">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="otasks" class="tabcontent">
+                <h3>Checking tasks ...</h3>
+                <div id="agentTasks">
+                    <!-- Show Agent Tasks -->
+                </div>
+            </div>
+
+            <small><strong>Note</strong>: <i>Table shows data based on condition date of the current year.</i></small>
+        </section>
+
+        <div class="wrapper">
+            <button id="logout" class="btn btn-primary">Okay. Log me out now.</button>
+        </div>
+    </main>
 
 
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>

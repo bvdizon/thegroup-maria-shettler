@@ -43,10 +43,23 @@ body {
     margin: auto;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+@import 'login';
 @import 'section-agent';
 @import 'tab-menu';
 @import 'table-deals';
 @import 'alerts';
+
 
 #otasks {
     h3 {
@@ -81,4 +94,20 @@ body {
     }
 }
 
+.btn {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: all ease-in-out .2s;
 
+    &:hover {
+        box-shadow: var(--box-shadow-default);
+    }
+
+    &-primary {
+        color: var(--theme-color-l2);
+        background-color: var(--accent-dark);
+    }
+}
